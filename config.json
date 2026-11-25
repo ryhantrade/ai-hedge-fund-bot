@@ -1,0 +1,89 @@
+{
+  "backtest": {
+    "days": 60,
+    "kronos_paths": 10,
+    "kronos_pred_len": 12,
+    "max_kronos_evals": 60,
+    "symbols": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "SOLUSDT"
+    ]
+  },
+  "gates": {
+    "committee_min_agree": 3,
+    "committee_min_score": 0.25,
+    "kronos_min_abs_move_pct": 0.8,
+    "kronos_p_up_long": 0.68,
+    "kronos_p_up_short": 0.32,
+    "max_range24h_pct": 25.0,
+    "min_range24h_pct": 1.5,
+    "kronos_mode": "advisory",
+    "long_min_ema50_pct": 0.4,
+    "long_min_chg6_pct": 0.4,
+    "short_max_chg6_pct": 0.0,
+    "alt_btc_ema50_pct": -0.5,
+    "short_min_rsi": 45,
+    "long_max_rsi": 60
+  },
+  "lookback_bars": 600,
+  "paper_equity_usd": 100,
+  "risk_pct": 1.0,
+  "scan": {
+    "max_candidates": 8,
+    "min_mcap_usd": 500000000,
+    "min_vol24h_usd": 50000000,
+    "min_vol_mcap": 0.02,
+    "top_n_coins": 250
+  },
+  "timeframe": "1h",
+  "trade": {
+    "min_sl_pct": 0.5,
+    "sl_atr_mult": 1.0,
+    "tp_r": 1.5
+  },
+  "watchlist": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "BNBUSDT",
+    "XRPUSDT",
+    "DOGEUSDT",
+    "ADAUSDT",
+    "LINKUSDT"
+  ],
+  "deposit_flow": {
+    "mode": "deposit",
+    "lookback_hours": 24,
+    "min_expected_move_pct": 0.8,
+    "sensitivity": 1.0,
+    "max_expected_move_pct": 5.0,
+    "min_flow_usd": 1000000,
+    "rank_by": "deposit_usd",
+    "inflow_direction": "long",
+    "sources_priority": [
+      "free_eth",
+      "whale_alert",
+      "cryptoquant"
+    ],
+    "universe_top_n": 250,
+    "formula": "expected_move_pct = sensitivity * deposit_usd / market_cap_usd * 100",
+    "note": "User spec 2026-11-24: rank all coins by deposits (absolute $), take the top coin's deposits relative to ITS market cap. Deposits -> price UP (long). TP from this calc, no 1.5R floor for the deposit scanner. Sensitivity UNCALIBRATED."
+  },
+  "gold": {
+    "symbol": "PAXGUSDT",
+    "source": "okx",
+    "tp_floor_r": 1.5,
+    "session_hours_utc": [
+      [
+        7,
+        11
+      ],
+      [
+        12,
+        16
+      ]
+    ],
+    "note": "Gold has no on-chain deposits; deposit-flow does NOT apply. Gold uses the SMC playbook (gold_strategy.py)."
+  }
+}

@@ -1,0 +1,12 @@
+# AI Hedge Fund — Board (paper trading only)
+# Runtime: Python 3.12 (pinned via PYTHON_VERSION in render.yaml).
+# torch is installed separately in the buildCommand from the CPU wheel
+# index (torch==2.15.0, ~800MB) — it is NOT listed here.
+ccxt>=4.5
+huggingface_hub
+safetensors
+einops==0.8.1
+pandas
+numpy
+tqdm
+flask

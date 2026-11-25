@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+data/cache/
+data/scan_log.jsonl
+data/paper_trades.jsonl
+data/gold_paper_trades.jsonl
+.env
+*.log
+.venv/
+venv/
+.DS_Store
